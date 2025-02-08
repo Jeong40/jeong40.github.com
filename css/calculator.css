@@ -1,0 +1,187 @@
+#background-box{
+    width:100%;
+    height:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image:url("/img/bg/Starship.png");
+    position: fixed;
+    transform: translate(-50%,0%);
+    top:0px;
+    left:50%;
+    z-index:0;
+}
+.containers{
+    width:300px;
+    height:300px;
+    border-radius:15px;
+    background-color: rgba(255,255,255,.5);
+    position:relative;
+    left:50%;
+    top:50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    z-index:2;
+    justify-content:flex-start;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    transform: translate(-50%,0);
+}
+.title-box{
+    width:300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    top:20px;
+    left:50%;
+    transform: translate(-50%,0);
+    z-index:3;
+}
+.title{
+    font-size:30px;
+    color:#000;
+    font-weight: 800;
+    z-index:3;
+}
+#main-title{
+  font-size:30px;
+  font-weight:900;
+  color:#fff;
+}
+.back-button{
+    color:#fff;
+    font-weight:800;
+    z-index:3;
+}
+input{
+    width:267px;
+    height:40px;
+    border-radius:10px;
+    font-weight: 800;
+    font-size:20px;
+    margin:5px;
+    left:5px;
+    z-index:3;
+    color: black;
+}
+a{
+    text-decoration: none;
+}
+.cal_button{
+    width:54px;
+    height:54px;
+    border-radius:10px;
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    z-index:3;
+    background-color: rgba(255, 255, 255, .3);
+    transition: 0.5s;
+}
+.cal_button:hover {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, .1)
+}
+#button1{
+    left:5px;
+    top:64px;
+}
+#button2{
+    left:64px;
+    top:64px;
+}
+#button3{
+    left:123px;
+    top:64px;
+}
+#button-plus{
+    left:182px;
+    top:64px;
+}
+#button4{
+    left:5px;
+    top:123px;
+}
+#button5{
+    left:64px;
+    top:123px;
+}
+#button6{
+    left:123px;
+    top:123px;
+}
+#button-minus{
+    left:182px;
+    top:123px;
+}
+#button7{
+    left:5px;
+    top:182px;
+}
+#button8{
+    left:64px;
+    top:182px;
+}
+#button9{
+    left:123px;
+    top:182px;
+}
+#button-times{
+    left:182px;
+    top:182px;
+}
+#button-C{
+    left:5px;
+    top:241px;
+}
+#button0{
+    left:64px;
+    top:241px;
+}
+#button-dot{
+    left:123px;
+    top:241px;
+}
+#button-divided{
+    left:182px;
+    top:241px;
+}
+#button-eval{
+    width:54px;
+    height:231px;
+    background-color:rgba(255,255,255,.3);
+    border-radius:10px;
+    position:absolute;
+    left:241px;
+    top:64px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    z-index:3;
+}
+#button-eval:hover{
+    width:54px;
+    height:231px;
+    background-color:rgba(255,255,255,.1);
+    border-radius:10px;
+    position:absolute;
+    left:241px;
+    top:64px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    z-index:3;
+}
+
+
+
