@@ -1,0 +1,250 @@
+body{
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*塞背景的*/
+.background-container{
+  background-image:url("/img/bg/Starship.png");
+  width:100%;
+  height:200%;
+  background-size:cover;
+  background-repeat: no;
+  position:fixed;
+  top:0px;
+  left:50%;
+  transform: translate(-50%,0);
+  z-index: -1;
+}
+a{
+  text-decoration: none;
+}
+
+.block-home{
+  border-radius:20px;
+  background-color:rgba(255,255,255,0.5);
+  display:flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+.block-home:hover{
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+#netcard{
+  width:100%;
+  clip-path: inset(10px 10px 10px 10px);
+  border-radius:20px;
+  padding:0;
+  margin:0;
+  border:0;
+  
+}
+/*横竖屏方块&title大小*/
+@media (orientation: landscape){
+  .block-home{
+    width:80%;
+    z-index: 0;
+  }
+  #home-title{
+    width:70%;
+  }
+}
+@media (orientation: portrait){
+  .block-home{
+    width:90%;
+    z-index: 0;
+  }
+  #home-title{
+    width:90%;
+  }
+}
+
+.block-pixel{
+  width:300px;
+  border-radius:20px;
+  background-color:rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+.block-image{
+  width:100%;
+  border-radius:20px;
+  z-index: 1;
+}
+
+
+
+
+/*导航栏*/
+/*这是他的默认样式*/
+.bar{
+  position:fixed;
+  background-color:rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display:flex;
+  justify-content: space-around;
+  z-index: 100;
+  overflow: hidden;
+}
+/*bar里的图标+文字*/
+.bar-content{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+/*罢里面的图标*/
+.bar-icon{
+  color:#000;
+  font-weight:900;
+}
+/*罢里面的文字*/
+.heng-bar-content{
+  color:#000;
+  padding:0;
+  margin:0;
+  border:0;
+}
+
+/*横屏*/
+@media (orientation: landscape){
+  
+  .bar{
+    left:0px;
+    top:50%;
+    transform: translate(0,-50%);
+    width:50px;
+    height:350px;
+    flex-direction: column;
+    border-radius:25px;
+    transition:0.2s;
+    align-items:flex-start;
+  }
+  .bar:hover{
+    width:200px;
+    align-items: flex-start;
+  }
+  .bar-content{
+    padding:9px;
+    flex-direction:row;
+    justify-content: center;
+    align-items:center;
+  }
+  .heng-bar-content{
+    font-size:30px;
+    padding-left:10px;
+  }
+  .bar-icon{
+    font-size:30px;
+  }
+}
+
+  
+
+/*竖屏*/
+@media (orientation: portrait){
+  .bar {
+    position: fixed;
+    left: 50%;
+    bottom:0px;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 50px;
+    flex-direction: row;
+    border-radius:0px;
+    align-items:center;
+  }
+  .bar-content{
+    padding:0px;
+    flex-direction: column;
+  }
+  .heng-bar-content {
+    font-size: 15px;
+  }
+  .bar-icon{
+    font-size:20px;
+  }
+}
+
+/*clock css*/
+.clock {
+  background-color:rgba(100,100,100,0.5);
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.hand {
+  position: absolute;
+  background-color: #fff;
+  transform-origin: bottom center; /* 旋转中心在底部 */
+  border-radius: 5px;
+}
+
+.hour-hand {
+  width: 6px;
+  height: 50px;
+  top: 50px;
+  left: 97px;
+  background-color: #ccf;
+  z-index: 3;
+}
+
+.minute-hand {
+  width: 4px;
+  height: 70px;
+  top: 30px;
+  left: 98px;
+  background-color: #cfc;
+  z-index: 4;
+}
+
+.second-hand {
+  width: 2px;
+  height: 80px;
+  top: 20px;
+  left: 99px;
+  background-color: red;
+  z-index: 5;
+}
+#date{
+  position:relative;
+  color:#fff;
+  top:120px;
+  left:60px;
+  font-size:20px;
+  padding:5px;
+  font-weight:900;
+  border:#555 solid;
+  border-radius:10px;
+  z-index: 2;
+}
+#heart{
+  width:10px;
+  height:10px;
+  position:relative;
+  left:95px;
+  top:65px;
+  background-color:#ff0;
+  border-radius:50%;
+  z-index: 6;
+}
+
