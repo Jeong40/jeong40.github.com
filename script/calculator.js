@@ -3,9 +3,12 @@
 //初始化俩参数
 var cal = "";
 var content = "";
-var initialContent = "0"
+var displayC = "0"
+//style
+var contentStyle = document.getElementById("content").style
+
 //初始化显示
-document.getElementById("content").innerHTML = initialContent;
+document.getElementById("content").innerHTML = displayC;
 //为了方便以后维护（如果我会维护的话）写的
 var btn0 = document.getElementById("btn0");
 var btn1 = document.getElementById("btn1");
@@ -28,102 +31,155 @@ var btnC = document.getElementById("btnC");
 //数字键盘(包括小数点)
 btn0.onclick = function() {
   content = content + "0";
+  displayC = content;
   cal = cal + "0"
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn1.onclick = function(){
   content = content + "1";
+  displayC = content;
   cal = cal + "1";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn2.onclick = function() {
   content = content + "2";
+  displayC = content;
   cal = cal + "2";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn3.onclick = function() {
   content = content + "3";
+  displayC = content;
   cal = cal + "3";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn4.onclick = function() {
   content = content + "4";
+  displayC = content;
   cal = cal + "4";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn5.onclick = function() {
   content = content + "5";
+  displayC = content;
   cal = cal + "5";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn6.onclick = function() {
   content = content + "6";
+  displayC = content;
   cal = cal + "6";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn7.onclick = function() {
   content = content + "7";
+  displayC = content;
   cal = cal + "7";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn8.onclick = function() {
   content = content + "8";
+  displayC = content;
   cal = cal + "8";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btn9.onclick = function() {
   content = content + "9";
+  displayC = content;
   cal = cal + "9";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 btnDot.onclick = function() {
   content = content + ".";
+  displayC = content;
   cal = cal + "."
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 //四则运算（包括清除、等于）
 btnJia.onclick = function(){
+  displayC = content;
   content = "";
   cal = cal + "+";
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#0f0";
+  document.getElementById("content").innerHTML = displayC;
 }
 btnJian.onclick = function() {
+  displayC = content;
   content = "";
   cal = cal + "-"
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#0f0";
+  document.getElementById("content").innerHTML = displayC;
 }
 btnCheng.onclick = function() {
+  displayC = content;
   content = "";
   cal = cal + "*"
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#0f0";
+  document.getElementById("content").innerHTML = displayC;
 }
 btnChu.onclick = function() {
+  displayC = content;
   content = "";
   cal = cal + "/"
-  document.getElementById("content").innerHTML = content;
+  contentStyle.color = "#0f0";
+  document.getElementById("content").innerHTML = displayC;
 }
 btnDengyu.onclick = function(){
   cal = eval(cal);
   content = cal;
+  contentStyle.color = "#000";
   document.getElementById("content").innerHTML = content;
 }
 btnC.onclick = function() {
   content = "";
-  cal = ""
-  document.getElementById("content").innerHTML = initialContent;
+  cal = "";
+  displayC = "0";
+  contentStyle.color = "#000";
+  document.getElementById("content").innerHTML = displayC;
 }
 //LL是LengthLimitation（长度限制）的缩写
+//function LL(){
+  //if(content.length>18){
+    //content = "";
+    //cal = "";
+    //document.getElementById("content").innerHTML = "Errow:(";
+  //}
+//}
+//setInterval(LL,100)
+
+//新的数字大小优化
 function LL(){
-  if(content.length>18){
-    content = "";
-    cal = "";
-    document.getElementById("content").innerHTML = "Errow:(";
+  if(displayC.length >=1 && displayC.length < 10){
+    contentStyle.fontSize = "50px";
+    document.getElementById("warning").innerHTML = "";
+  }else{
+    if(10 <= displayC.length && displayC.length < 18){
+      contentStyle.fontSize = "30px";
+    }else{
+      if(displayC.length >= 18 && displayC.length < 26){
+        contentStyle.fontSize = "20px";
+      }else{
+        if(displayC.length > 26){
+          document.getElementById("warning").innerHTML = "你真的需要那么长的数字吗";
+        }
+      }
+    }
   }
 }
-setInterval(LL,100)
-
+setInterval(LL,50);
 //about button
 var about = document.getElementById("about");
 about.onclick = function(){
-  alert("此计算器全部代码由Jeong编写（包括HTML、CSS和javascript），未经允许，请勿盗用");
+  alert("此计算器全部由Jeong编写（包括HTML、CSS和javascript）有空会单独弄一个github仓库放进去，有需要可以自取（如果真的有人喜欢这段屎山代码的话");
 }
