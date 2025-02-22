@@ -3,18 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="https://jeong40.github.io/img/icon/resources.jpeg">
+  <link rel="icon" href="https://jeong40.github.io/img/icon/home.png">
   <link rel="stylesheet" href="../font/iconfont.css">
   <link rel="stylesheet" href="../css/main.css">
   <title>随机抽签</title>
   <style>
+    #draw-box{
+      justify-content:space-around;
+      align-items:space-around;
+    }
     .content-font{
       font-size:20px;
       color:#000;
-      padding:10px;
+      padding:0px 15px 0px 15px;
+    }
+    .content-title{
+      font-size:40px;
+      color:black;
     }
     .content-img{
       width:100%;
+    }
+    #names{
+      font-size:30px;
+      color:black;
+    }
+    #btn{
+      width:80px;
+      height:50px;
+      background-color:rgba(255,255,255,0.3);
+      border-radius:20px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
   </style>
 </head>
@@ -37,15 +58,49 @@
     <span class="content-font">有了上面的最基本的算法后，再通过检测用户是否点击了按钮，第一次点击就开始循环往复地运行上面的算法，再次按下就停止，达到随机抽取的效果</span>
     <br>
     <span class="content-font">本项目已开源至github</span><br>
-    <a href="https://github.com/Jeong40/Resources/tree/main/draw" target="_blank">
+    <a href="https://github.com/Jeong40/Resources/tree/main/draw">
       <span class="iconfont icon-safari content-font">点击查看</span>
     </a>
     <br>
     <a href="../resources.html">
-      <span class="iconfont icon-archive content-font">返回</span>
-    </a> 
+      <span class="iconfont icon-archive content-font">Back</span>
+    </a>
     <br>
   </div>
+  <br>
+  <div class="block-home" id="draw-box">
+    <span class="content-title">效果展示</span>
+    <span id="names"></span>
+    <div id="btn"></div>
+  </div>
+  <script>
+    var username = ["今天吃啥","粥","粉","面","饭"];
+    var name = document.getElementById("names");
+    var btn = document.getElementById("btn");
+    var randomNum = 0;
+    var i = 1;
+    var intervalId;
+    document.getElementById("btn").innerHTML = "Start";
+    document.getElementById("names").innerHTML = username[randomNum];
+    function randomDisplay(){
+      randomNum = Math.ceil(Math.random()*4);
+      document.getElementById("names").innerHTML = username[randomNum];
+    }
+    
+    btn.addEventListener("click",function(){
+       if(i === 1){
+        intervalId = setInterval(randomDisplay,30);
+        document.getElementById("btn").innerHTML = "Stop";
+        i = 0;
+       }else{
+         if(i === 0){
+           i = 1;
+           clearInterval(intervalId);
+           document.getElementById("btn").innerHTML = "Start";
+         }
+       }
+     });
+  </script>
 </body> 
 
 </html>
