@@ -57,6 +57,11 @@
     <span class="content-font">支持自定义名单，用户可根据需要轻松修改或扩展名单</span><br>
     <span class="content-title">原理</span>
     <span class="content-font">其原理十分简单。首先建立一个列表（要人手工输入，所以可能有点麻烦），列表中第一项填上“点击以开始”，相当于是列表中的第0项，后面再填入人名或是其他什么抽签用的内容。通过Math.random（）生成一个[0,1)的随机数字，将这个数字乘上人数再向上取整，即为列表中名字的编号（第几个名字），最后再将抽取到的名字显示在框中。</span><br>
+    <span class="content-title">应用场景</span>
+    <span class="content-font">·课堂点名：老师可以快速选择学生回答问题或参与活动</span>
+    <span class="content-font">·会议抽奖：在会议或活动中抽取幸运参与者</span>
+    <span class="content-font">·团队游戏：用于团队合作或活动的随机分组或选择</span>
+    <br>
     <span style="font-size:40px">例子</span><br>
     <span class="content-font">现在总共有4个人，分别为name1，name2，name3和name4。然后按照以下格式填入名字（填写的位置有写注释，第一项就用“点击以开始”，不用改）这个是在代码的第77行，推荐用VScode打开来编辑（当然，直接用记事本也行，就是格式可能会有点乱）。</span><br>
     <img src="../img/resources/draw/code1.jpeg" alt="Loading" class="content-img">
@@ -78,7 +83,7 @@
     <br>
   </div>
   <br>
-  <div class="block-home" id="draw-box" style="width:350px">
+  <div class="block-home" id="draw-box" style="width:350px;height:200px">
     <span class="content-title">效果展示</span>
     <span id="names"></span>
     <div id="btn"></div>
