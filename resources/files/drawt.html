@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://jeong40.github.io/img/resources/drawDL.png">
+  <title>点名器</title>
+  <style>
+    body{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background-color:#ddd;
+      width:100%;     
+      height:100%;
+    }
+    #container{
+      height:350px;
+      width:500px;
+      background-color:#eee;
+      border-radius:20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-around;
+      align-items:center;
+    }
+    #title{
+      height:50px;
+      font-size:65px;
+      font-weight:900;
+    }
+    #names{
+      height:50px;
+      font-size:50px;
+    }
+    #btn{
+      height:90px;
+      width:200px;
+      font-size:40px;
+      background-color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:20px;
+      box-shadow:10px;
+    }
+    #about{
+    width:80px;
+    height:50px;
+    background-color:#eee;
+    border-radius:20px;
+    padding:5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:30px;
+    color:black;
+    }
+    a{
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="title">随机点名</div>
+    <div id="names"></div>
+    <div id="btn">Click</div>
+  </div>
+  <br>
+  <a href="https://jeong40.github.io/resources/draw.html" target="_blank">
+    <div id="about">About</div>
+  </a>
+  <script>
+    var username = ["点击以开始","name1","name2","name3","name4"];
+    //在中括号内用那上面的格式填入任命，要用[”名字1”，”名字2”，”名字3”。。。。。。]的格式填写，第一项”点击以开始”不用改
+    
+    
+    
+    var name = document.getElementById("names");
+    var btn = document.getElementById("btn");
+    var randomNum = 0;
+    var i = 1;
+    var intervalId;
+    document.getElementById("btn").innerHTML = "Start";
+    document.getElementById("names").innerHTML = username[randomNum];
+    function randomDisplay(){
+      randomNum = Math.ceil(Math.random()*4);
+      //此处将4替换成总人数
+      
+      
+      
+      document.getElementById("names").innerHTML = username[randomNum];
+    }
+    
+    btn.addEventListener("click",function(){
+       if(i === 1){
+        intervalId = setInterval(randomDisplay,50);
+        document.getElementById("btn").innerHTML = "Stop";
+        i = 0;
+       }else{
+         if(i === 0){
+           i = 1;
+           clearInterval(intervalId);
+           document.getElementById("btn").innerHTML = "Start";
+         }
+       }
+     });
+  </script>
+</body>
+</html>
