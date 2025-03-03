@@ -48,62 +48,20 @@
       font-size:20px;
     }
     #download-box{
+      width:340px;
       height:100px;
-      position:relative;
       display:flex;
-      flex-direction: row;
-      background-color:rgba(255,255,255,0.5);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      border-radius:20px;
-      position:relative;
-      
+      flex-direction:row;
+      align-items:center;
+      justify-content:space-around;
     }
     #logs{
-      transition:0.5s;
+      width:350px;
+      transition:1s;
       height:100px;
       justify-content:flex-start;
       overflow: hidden;
     }
-    #DL{
-      height:90px;
-      width:90px;
-      border-radius:15px;
-      position:absolute;
-      top:5px;
-      left:5px;
-    }
-    #DLbtn{
-      width:80px;
-      height:50px;
-      border-radius:20px;
-      background-color:rgba(255,255,255,0.5);
-      -webkit-backdrop-filter: blur(5px);
-      backdrop-filter: blur(5px);
-      display:flex;
-      justify-content: center;
-      align-items:center;
-      font-size:20px;
-      font-weight:900;
-      position:absolute;
-      right:5px;
-      top:20px;
-      color:#000;
-    }
-    @media (orientation: portrait){
-      #download-box{
-        width:90%;
-      }
-    }
-    @media (orientation: landscape){
-      #download-box{
-        width:80%;
-      }
-    }
-    a{
-      text-decoration:none;
-    }
-    
   </style>
 </head>
 
@@ -112,19 +70,15 @@
   <p style="font-size:50px;color:#fff;font-weight:900">随机抽签</p>
   <br>
   <div id="download-box">
-    <img src="../img/resources/draw/drawDL.png" id="DL">
-    <a href="../resources/files/drawt.html" download>
-      <div id="DLbtn">下载</div>
-    </a>
+    
   </div>
-  <br>
-  <div class="block-home" id="draw-box" style="height:200px">
+  <div class="block-home" id="draw-box" style="width:350px;height:200px">
     <span class="content-title">效果展示</span>
     <span id="names"></span>
     <div id="btn"></div>
   </div>
   <br>
-  <div class="block-home">
+  <div class="block-home" style="width:350px">
     <span style="font-size:40px">简介</span><br>
     <span class="content-font">此点名器是一款简单实用的工具，专为课堂、会议或其他需要随机选择人员或选项的场合（比如说决定今晚吃什么）。通过点击按钮，系统会从规定的名单中随机抽取一个名字，并以醒目的方式显示在屏幕上。此点名器洁面简洁明了，操作简单，适合在各种场合快速、公平地抽取点名</span><br>
     <span class="content-title">主要特点</span><br>
@@ -174,8 +128,6 @@
     <span class="content-font">2025.2.28</span>
     <span class="content-font">添加了更新日志</span>
     <br>
-    <span class="content-font">2025.3.2</span>
-    <span class="content-font">更改了图标，添加了更加方便的下载方式</span>
     <div id="shoubtn">收起</div>
     <br>
   </div>
@@ -215,7 +167,7 @@
      var logsStyle = document.getElementById("logs").style;
      var shoubtn = document.getElementById("shoubtn")
      logs.onclick = function(){
-       logsStyle.height="400px";
+       logsStyle.height="600px";
      }
      shoubtn.onclick = function(e){
        e.stopPropagation();
