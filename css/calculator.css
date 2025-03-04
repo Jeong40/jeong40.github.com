@@ -3,7 +3,7 @@
     height:100%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image:url("/img/bg/Starship.png");
+    background-image:url("/img/bg/Starship.webp");
     position: fixed;
     transform: translate(-50%,0%);
     top:0px;
