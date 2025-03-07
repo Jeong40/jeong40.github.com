@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新年烟花特效</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #fff  ;
+            cursor: pointer;
+        }
+        #canvas {
+            display: block;
+            position:absolute;
+        }
+        .card{
+          width:400px;
+          height:500px;
+          background-color:rgba(255, 187, 187, 0.3);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius:30px;
+          position:absolute;
+          top:50%;
+          left:50%;
+          transform:translate(-50%,-50%);
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          justify-content:center;
+        }
+        a{
+          text-decoration: none;
+          font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="card">
+      <h1>亲爱的女神，妇女节快乐！</h1>
+      <p>在这个特别的日子里, 愿你的生活充满阳光，</p>
+      <p>每一刻都如鲜花般绚烂。</p>
+      <p>你是坚韧的象征，也是温柔的化身，</p>
+      <p>愿你的每一天都幸福满满，永远被爱包围！</p>
+      <img src="../img/element/38.svg" style="width:300px">
+    </div>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // 设置画布尺寸
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // 烟花粒子数组
+        let fireworks = [];
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.angle = Math.random() * Math.PI * 2;
+                this.speed = Math.random() * 5 + 2;
+                this.vx = Math.cos(this.angle) * this.speed;
+                this.vy = Math.sin(this.angle) * this.speed;
+                this.radius = Math.random() * 2 + 1;
+                this.color = `hsl(${Math.random() * 60}, 100%, 50%)`;
+                this.alpha = 1;
+                this.decay = 0.015 + Math.random() * 0.02;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vy += 0.1; // 重力效果
+                this.alpha -= this.decay;
+                this.radius *= 0.98;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function createFirework(x, y) {
+            for (let i = 0; i < 100; i++) {
+                fireworks.push(new Particle(x, y));
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            fireworks.forEach((particle, index) => {
+                particle.update();
+                particle.draw();
+                if (particle.alpha <= 0) {
+                    fireworks.splice(index, 1);
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // 鼠标点击触发烟花
+        canvas.addEventListener('click', (e) => {
+            createFirework(e.clientX, e.clientY);
+        });
+
+        // 自动播放烟花
+        setInterval(() => {
+            createFirework(
+                Math.random() * canvas.width,
+                Math.random() * canvas.height/2
+            );
+        }, 2000);
+
+        animate();
+    </script>
+</body>
+</html>
