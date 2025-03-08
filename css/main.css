@@ -58,7 +58,7 @@ a{
     z-index: 0;
   }
   #home-title{
-    width:70%;
+    width:500   px;
   }
 }
 @media (orientation: portrait){
