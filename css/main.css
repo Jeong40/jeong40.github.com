@@ -1,0 +1,81 @@
+/*标题*/
+#title-box{
+  margin-top: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/*元素*/
+.container{
+  width: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#netcard{
+  width: 110%;
+  position: relative;
+  left: 50%;
+  top: 0px;
+  transform: translate(-50%,0);
+}
+.pic{
+  width:100%;
+}
+
+.block-big{
+  aspect-ratio: 2/1;
+  border-radius:5vw;
+  background-color: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  margin:2.5vw;
+}
+.block-small{
+  aspect-ratio: 1/1;
+  border-radius:5vw;
+  background-color: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  margin:2.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+@media screen and (max-width: 560px){
+  #title-box{
+    width: 80vw;
+    background-image: url("../img/elements/home.svg");
+    height: 45vw;
+  }
+  .container{
+    flex-direction: column;
+  }
+  .block-big{
+    width:90vw;
+  }
+  .block-small{
+    width: 90vw;
+  }
+}
+@media screen and (min-width: 560px){
+  #title-box{
+    width:560px;
+    height: 105px;
+    background-image: url("../img/elements/home-landscape.svg");
+  }
+  .container{
+    flex-direction: row;
+  }
+  .block-big{
+    width: 60vw;
+  }
+  .block-small{
+    width:30vw;
+  }
+}
