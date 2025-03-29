@@ -11,18 +11,14 @@ btn.onclick = function() {
     firstLine.style.top = "50%";
     secondLine.style.transform = "rotate(-45deg)";
     secondLine.style.top = "50%";
-    menu.style.height = "200px";
-    menu.style.width = "200px";
-    menu.style.zIndex = "10";
+    menu.style.left = "0px"
     off = false;
   } else {
     firstLine.style.transform = "rotate(0deg)";
     firstLine.style.top = "14px";
     secondLine.style.transform = "rotate(0deg)";
     secondLine.style.top = "32px";
-    menu.style.height = "1px";
-    menu.style.width = "50px";
-    menu.style.zIndex = "-2";
+    menu.style.left = "-200px";
     off = true;
   }
 }
