@@ -68,6 +68,7 @@ a{
   align-items: center;
   justify-content: space-around;
   z-index: 10;
+  border-radius: 0px 0px 20px 0px;
 }
 .menu-content{
   display: flex;
