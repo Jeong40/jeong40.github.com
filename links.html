@@ -8,25 +8,44 @@
   <link rel="icon" href="./img/icons/home.jpeg">
   <link rel="stylesheet" href="./iconfont/iconfont.css">
   <link rel="stylesheet" href="./css/public.css">
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/block-content.css">
   <link rel="stylesheet" href="./css/bar.css">
   <style>
-    @media screen and (max-width:560px){
-      .link-content{
-        font-size: 10vw;
-      }
+    #SecuresWebTitle{
+      color: white;
     }
     @media screen and (min-width:560px){
-      .link-content{
-        font-size: 3vw;
+      #SecuresWebTitle{
+        font-size: 4vw;
       }
+      #Se{
+        width: 50%;
+        top: 4%;
+      }
+    }
+    @media screen and (max-width:560px){
+      #SecuresWebTitle{
+        font-size: 10vw;
+      }
+      #Se{
+        width: 80%; 
+        top: 10%;
+      }
+    }
+    #Se{
+      aspect-ratio: 1/1;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,0px);
+      image-rendering: pixelated;
+      border-radius: 50%;
     }
   </style>
 </head>
 
 
 <body>
-  <div id="background-box"></div>
+  <div id="bg-box"></div>
   
   <!--导航栏-->
   <div id="bar">
@@ -64,12 +83,14 @@
   <!--导航栏-->
   
   <div style="height:60px;width:10px"></div>
+  <div class="container">
   <a href="https://secure-mcpc.github.io">
-    <div class="block-small">
-      <img src="./img/links/secure-mcpc.png" style="width: 80%;border-radius: 50%;image-rendering: pixelated">
-      <span class="link-content">Secure's Web </span>
+    <div class="big-block">
+      <img src="./img/links/secure-mcpc.png" id="Se">
+      <div class="block-title" id="SecuresWebTitle">Secure's web</div>
     </div>
   </a>
+  </div>
   <script src="./scripts/bar.js"></script>
 </body>
 
