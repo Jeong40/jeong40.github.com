@@ -2,5 +2,29 @@
   background-image: url("../img/elements/calculator.png");
   background-size: contain;
 }
+#good-photos{
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+} 
+@media screen and (max-width:560px){
+  #good-photos-title{
+    font-size: 8vw;
+  }
 
+}
+@media screen and (min-width:560px){
 
+}
+@media screen and (orientation:portrait) and (min-width:560px) {
+  #good-photos-title{
+    font-size: 4vw;
+  }
+}
+@media screen and (orientation:landscape) and (min-width:560px){
+  #good-photos-title{
+    font-size: 2.5vw;
+  }
+}
