@@ -27,22 +27,22 @@
       <iframe src="./resource/files/clock.html" id="clockIframe"></iframe>
   </div>
   <div id="menu">
-    <a href="./index.html">
+    <a href="./index.html" onclick="loadPage(event)">
       <div class="menu-content">
         <span class="iconfont icon-home menu-text">Home</span>
       </div>
     </a>
-    <a href="resources.html">
+    <a href="resources.html" onclick="loadPage(event)">
       <div class="menu-content">
         <span class="iconfont icon-archive menu-text">Resources</span>
       </div>
     </a>
-    <a href="./links.html">
+    <a href="./links.html" onclick="loadPage(event)">
       <div class="menu-content">
         <span class="iconfont icon-links menu-text">Links</span>
       </div>
     </a>
-    <a href="./about.html">
+    <a href="./about.html" onclick="loadPage(event)">
       <div class="menu-content">
         <span class="iconfont icon-about menu-text">About</span>
       </div>
@@ -96,6 +96,7 @@
       <div class="option-line"></div>
       <p class="page-content">2025.4.5</p>
       <p class="page-content">iOS设备将该网站快捷方式添加至桌面时的图标修改为网站的图标（安卓端后面有空再改）</p>
+      <p class="page-content">iOS端添加之主屏幕后点开可全屏（类似于一个app的样子），安卓也是后面再弄qwq</p>
       <p class="page-content">稍微修改了一些小细节</p>
     </div>
 
@@ -106,6 +107,7 @@
   
   <script src="./scripts/bar.js"></script>
   <script src="./scripts/about.js"></script>
+  <script src="./scripts/loadpage.js"></script>
 </body>
 
 </html>
