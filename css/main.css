@@ -24,3 +24,14 @@
   top: 50%;
   transform: translate(-50%,-50%);
 }
+#container-record{
+  width: 200px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#record{
+  font-size: 20px;
+  color: black;
+}
