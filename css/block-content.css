@@ -9,8 +9,21 @@
   top: 50%;
   transform: translate(-50%,-50%);
 } 
+#mc-bg{
+  background-image: url("https://s1.imagehub.cc/images/2025/04/22/edaec49e3c538441433c474ed678f3bd.jpeg");
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
 @media screen and (max-width:560px){
   #good-photos-title{
+    font-size: 8vw;
+  }
+  #mc-title{
     font-size: 8vw;
   }
 
@@ -22,9 +35,15 @@
   #good-photos-title{
     font-size: 4vw;
   }
+  #mc-title{
+    font-size: 4vw;
+  }
 }
 @media screen and (orientation:landscape) and (min-width:560px){
   #good-photos-title{
     font-size: 2.5vw;
+  }
+  #mc-title{
+    font-size: 5vw;
   }
 }
