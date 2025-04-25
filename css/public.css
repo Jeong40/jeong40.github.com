@@ -113,6 +113,17 @@ img{
   top: 10px;
   font-weight: 900;
 }
+.infobox{
+  background-color: rgba(255,255,255,0.3); 
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3vw;
+  position: relative;
+}
 @media screen and (orientation:portrait) and (min-width:560px){
   .container{
     flex-direction: row;
@@ -148,6 +159,10 @@ img{
     font-size: 5vw;
     color: grey;
   }
+  .infobox{
+    width: 504px;
+    width: 44.8px;
+  }
 }
 @media screen and (orientation:landscape) and (min-width:560px){
   .container{
@@ -181,6 +196,10 @@ img{
   }
   #popClose{
     font-size: 5vw;
+  }
+  .infobox{
+    width: 504px;
+    border-radius: 44.8px;
   }
 }
 @media screen and (max-width:560px){
@@ -217,5 +236,9 @@ img{
   }
   #popClose{
     font-size: 8vw;
+  }
+  .infobox{
+    width: 90vw;
+    border-radius: 8vw;
   }
 }
