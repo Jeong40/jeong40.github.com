@@ -12,14 +12,18 @@ goodPhotosBox.onclick = function(){
   popContent.innerHTML = "网上搜集的资源，侵权删（12大概率是ai作图，所以我把它稍微修改了一下，以显得更自然些,封面图就是修改后的12）";
   popBtn.href = "https://www.123684.com/s/EVPZjv-cjbRd";
   popBtn.innerHTML = "查看";
+  popBtn.target = "_blank"
   pop.style.top = "50%";
+  
 }
 calculator.onclick = function(){
   popTitle.innerHTML = "计算器";
   popContent.innerHTML = "Jeong用javascript开发的计算器，仍在更新中";
   popBtn.href = "./pages/calculator.html";
   popBtn.innerHTML = "打开";
+  popBtn.target = "_self"
   pop.style.top = "50%";
+  
 }
 
 popClose.onclick = function(){
