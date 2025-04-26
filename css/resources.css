@@ -43,6 +43,7 @@
     width: 20vw;
     height: 15vw;
     border-radius: 5vw;
+    font-size: 5vw;
   }
   .DL-content{
     font-size: 6vw;
@@ -50,7 +51,7 @@
 }
 @media screen and (min-width:560px){
   .DL{
-    height: 145.6px;
+    width: 145.6px;
   }
   .DL-icon{
     width: 112px;
@@ -64,13 +65,10 @@
   .DL-btn{
     width: 112px;
     height: 84px;
-  }
-  .DL-btn{
     left: 428.4px;
     top: 50%;
-    width: 112px;
-    height: 84px;
     border-radius: 28px;
+    font-size: 28px;
   }
   .DL-content{
     font-size: 33.6px;
