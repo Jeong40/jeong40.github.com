@@ -1,5 +1,6 @@
 var goodPhotosBox = document.getElementById("good-photos-box");
 var calculator = document.getElementById("calculator");
+var mcBox = document.getElementById("mc-box");
 
 var pop = document.getElementById("pop");
 var popTitle = document.getElementById("popTitle");
@@ -18,12 +19,19 @@ goodPhotosBox.onclick = function(){
 }
 calculator.onclick = function(){
   popTitle.innerHTML = "计算器";
-  popContent.innerHTML = "Jeong用javascript开发的计算器，仍在更新中";
+  popContent.innerHTML = "自己用javascript写的计算器，仍在更新中";
   popBtn.href = "./pages/calculator.html";
   popBtn.innerHTML = "打开";
   popBtn.target = "_self"
   pop.style.top = "50%";
-  
+}
+mcBox.onclick = function(){
+  popTitle.innerHTML = "这是什么？？？";
+  popContent.innerHTML = "项脊轩……但是是在MC里？？？";
+  popBtn.href = "https://www.bilibili.com/video/BV16p5yzjEmB/";
+  popBtn.innerHTML = "观看";
+  popBtn.target = "_blank";
+  pop.style.top = "50%";
 }
 
 popClose.onclick = function(){
