@@ -181,5 +181,5 @@ setInterval(LL, 50);
 //about button
 var about = document.getElementById("about");
 about.onclick = function() {
-  alert("此计算器全部由Jeong编写（包括HTML、CSS和javascript）有空会单独弄一个github仓库放进去，有需要可以自取");
+  alert("一个功能不多的简易计算器\n可前往Resources下载html文件");
 }
