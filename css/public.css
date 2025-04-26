@@ -161,7 +161,7 @@ img{
   }
   .infobox{
     width: 504px;
-    width: 44.8px;
+    border-radius: 44.8px;
   }
 }
 @media screen and (orientation:landscape) and (min-width:560px){
