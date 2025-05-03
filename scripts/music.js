@@ -3,6 +3,11 @@ var prev = document.getElementById("prev");
 var next = document.getElementById("next");
 //播放器三大金刚（bushi
 
+var musicOne = document.getElementById("music1");
+var musicTwo = document.getElementById("music2");
+var musicThree = document.getElementById("music3");
+//选歌列表
+
 var music = document.getElementById("music");
 var source = document.getElementById("source");//音源
 var cover = document.getElementById("cover");//曲绘
@@ -46,22 +51,27 @@ function startPlaying(){
     paused.style.color = "rgba(0,0,0,0.0)"
   }
 }
-function nextMusic(){
-  if (num < musicList.length - 1){
-    num = num + 1;
-  }else{
-    num = 0;
-  }
+
+function updateInfo(){
   source.src = `https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/musics/${sourceList[num]}.mp3`
   musicTitle.innerHTML = musicList[num];
   musicAuthor.innerHTML = authorList[num];
   music.load();
   Deg = 0;
   cover.style.transform = "rotate(0deg)";
-  cover.style.backgroundImage = `url("https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/img/music-cover/${coverList[num]}.png")`
-  if(isPlaying){
+  cover.style.backgroundImage = `url("https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/img/music-cover/${coverList[num]}.png")`;
+    if (isPlaying) {
     music.play();
   }
+}
+
+function nextMusic(){
+  if (num < musicList.length - 1){
+    num = num + 1;
+  }else{
+    num = 0;
+  }
+  updateInfo();
 }
 function prevMusic(){
   if(num > 0){
@@ -69,19 +79,28 @@ function prevMusic(){
   }else{
     num = musicList.length - 1;
   }
-  source.src = `https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/musics/${sourceList[num]}.mp3`
-  musicTitle.innerHTML = musicList[num];
-  musicAuthor.innerHTML = authorList[num];
-  music.load();
-  Deg = 0;
-  cover.style.transform = "rotate(0deg)";
-  cover.style.backgroundImage = `url("https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/img/music-cover/${coverList[num]}.png")`
-  if (isPlaying) {
-    music.play();
-  }
+  updateInfo();
 }
 
 playBtn.addEventListener("click",startPlaying);
 next.addEventListener("click",nextMusic);
 prev.addEventListener("click",prevMusic);
+//三大金刚键功能
+
+musicOne.onclick = function(){
+  num = 0;
+  updateInfo();
+}
+musicTwo.onclick = function(){
+  num = 1;
+  updateInfo();
+}
+musicThree.onclick = function(){
+  num = 2;
+  updateInfo();
+}
+//歌单功能
+
 music.addEventListener("ended",nextMusic);
+//自动切歌
+
