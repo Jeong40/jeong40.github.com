@@ -19,6 +19,16 @@
   left: 0px;
   top: 0px;
 }
+#music-bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-image: url("https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/img/elements/music.png");
+  background-size: cover;
+  background-position-x: center;
+}
 @media screen and (max-width:560px){
   #good-photos-title{
     font-size: 8vw;
