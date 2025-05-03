@@ -73,6 +73,21 @@ body{
   justify-content: center;
   position: relative;
 }
+.options{
+  background-color: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.option-title{
+  color: black;
+}
+.option-content{
+  color: black;
+}
 #playing {
   color: rgba(0,0,0,0.0);
   position: absolute;
@@ -109,6 +124,17 @@ body{
   .controls-btn{
     font-size: 15vw;
   }
+  .options{
+    width: 85vw;
+    border-radius: 10vw;
+  }
+  .option-title{
+    font-size: 10vw; 
+  }
+  .option-content{
+    font-size: 8vw;
+    margin: 2vw;
+  }
   #playing{
     font-size: 15vw;
   }
@@ -137,6 +163,17 @@ body{
   }
   .controls-btn{
     font-size: 84px;
+  }
+  .options{
+    width: 476px;
+    border-radius: 56px;
+  }
+  .option-title{
+    font-size: 56px;
+  }
+  .option-content{
+    font-size: 44.8px;
+    margin: 11.2px;
   }
   #playing{
     font-size: 84px;
