@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relaxing music</title>
+  <link rel="stylesheet" href="../iconfont/player/iconfont.css">
+  <link rel="icom" href="../img/icons/music.png">
+  <link rel="stylesheet" href="../css/music.css">
+</head>
+
+<body>
+  <div id="bg"></div>
+  <div id="container">
+    <div id="disk">
+      <div id="cover"></div>
+    </div>
+    <span id="music-title">Days of Love</span>
+    <span id="music-author">松本文纪</span>
+  </div>
+  <br/>
+  <div class="controls-container">
+    <div class="iconfont icon-player-back-01 controls-btn"id="prev"></div>
+    <div class="controls-btn" id="play-btn">
+      <div class="iconfont icon-player" id="paused"></div>
+      <div class="iconfont icon-player-pause" id="playing"></div>
+    </div>
+    <div class="iconfont icon-player-next-01 controls-btn" id="next"></div>
+  </div>
+  
+  <audio id="music">
+    <source src="../musics/DoL.mp3" id="source">
+  </audio>
+  <script src="../scripts/music.js"></script>
+</body>
+
+</html>
