@@ -15,7 +15,7 @@ var pasued = document.getElementById("paused");
 var musicList = ["Days of Love","海中都市","希望の光"];
 var authorList = ["松本文纪","松本文纪","松本文纪"];
 var sourceList = ["DoL","CityInTheOcean","LightOfHope"];
-var coverList = ["1","2","3"]
+var coverList = ["https://s1.imagehub.cc/images/2025/05/03/053efdee659e879ecc5afe43dea5d84a.th.png","https://s1.imagehub.cc/images/2025/05/03/db85ecf62478f032685f3a65ee288e7a.th.png","https://s1.imagehub.cc/images/2025/05/03/f8117c6c215bdd07e595d6ccf937161c.th.png  "]
 //歌曲信息
 
 var isPlaying = false;
@@ -58,7 +58,7 @@ function nextMusic(){
   music.load();
   Deg = 0;
   cover.style.transform = "rotate(0deg)";
-  cover.style.backgroundImage = `url("../img/music-cover/${coverList[num]}.png")`
+  cover.style.backgroundImage = `url("${coverList[num]}")`
   if(isPlaying){
     music.play();
   }
@@ -75,7 +75,7 @@ function prevMusic(){
   music.load();
   Deg = 0;
   cover.style.transform = "rotate(0deg)";
-  cover.style.backgroundImage = `url("../img/music-cover/${coverList[num]}.png")`
+  cover.style.backgroundImage = `url("${coverList[num]}")`
   if (isPlaying) {
     music.play();
   }
