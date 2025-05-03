@@ -9,13 +9,13 @@ var cover = document.getElementById("cover");//曲绘
 var musicTitle = document.getElementById("music-title");
 var musicAuthor = document.getElementById("music-author")
 var playing = document.getElementById("playing");
-var pasued = document.getElementById("paused");
+var paused = document.getElementById("paused");
 //ui信息显示、装饰
 
 var musicList = ["Days of Love","海中都市","希望の光"];
 var authorList = ["松本文纪","松本文纪","松本文纪"];
-var sourceList = ["DoL","CityInTheOcean","LightOfHope"];
-var coverList = ["https://s1.imagehub.cc/images/2025/05/03/053efdee659e879ecc5afe43dea5d84a.th.png","https://s1.imagehub.cc/images/2025/05/03/db85ecf62478f032685f3a65ee288e7a.th.png","https://s1.imagehub.cc/images/2025/05/03/f8117c6c215bdd07e595d6ccf937161c.th.png  "]
+var sourceList = ["https://cccimg.com/view.php/9405d42cdf464bde862f4475d4112a8e.mp3","https://cccimg.com/view.php/e26fb44ea5cf1a4ba6b89fb652ef7b81.mp3","https://cccimg.com/view.php/3e37a29db7e9d124b75c867b8a81e543.mp3"];
+var coverList = ["https://s1.imagehub.cc/images/2025/05/03/053efdee659e879ecc5afe43dea5d84a.th.png","https://s1.imagehub.cc/images/2025/05/03/db85ecf62478f032685f3a65ee288e7a.th.png","https://s1.imagehub.cc/images/2025/05/03/f8117c6c215bdd07e595d6ccf937161c.th.png"]
 //歌曲信息
 
 var isPlaying = false;
@@ -52,7 +52,7 @@ function nextMusic(){
   }else{
     num = 0;
   }
-  source.src = `../musics/${sourceList[num]}.mp3`
+  source.src = `${sourceList[num]}`
   musicTitle.innerHTML = musicList[num];
   musicAuthor.innerHTML = authorList[num];
   music.load();
@@ -69,7 +69,7 @@ function prevMusic(){
   }else{
     num = musicList.length - 1;
   }
-  source.src = `../musics/${sourceList[num]}.mp3`
+  source.src = `${sourceList[num]}`
   musicTitle.innerHTML = musicList[num];
   musicAuthor.innerHTML = authorList[num];
   music.load();
