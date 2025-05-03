@@ -97,7 +97,7 @@ musicTwo.onclick = function(){
 }
 musicThree.onclick = function(){
   num = 2;
-  updateInfo();
+  updateInfo(); 
 }
 //歌单功能
 

@@ -1,6 +1,7 @@
 var goodPhotosBox = document.getElementById("good-photos-box");
 var calculator = document.getElementById("calculator");
 var mcBox = document.getElementById("mc-box");
+var music = document.getElementById("music");
 
 var pop = document.getElementById("pop");
 var popTitle = document.getElementById("popTitle");
@@ -31,6 +32,14 @@ mcBox.onclick = function(){
   popBtn.href = "https://www.bilibili.com/video/BV16p5yzjEmB/";
   popBtn.innerHTML = "观看";
   popBtn.target = "_blank";
+  pop.style.top = "50%";
+}
+music.onclick = function(){
+  popTitle.innerHTML = "一些好听的音乐";
+  popContent.innerHTML = "分享了一些好听的音乐（请勿用做商业用途！！！）";
+  popBtn.href = "../pages/music.html";
+  popBtn.innerHTML = "打开";
+  popBtn.target = "_self";
   pop.style.top = "50%";
 }
 
