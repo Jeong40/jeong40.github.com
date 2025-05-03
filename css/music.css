@@ -33,15 +33,26 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
-
+#loading{
+  color: white;
+  font-weight: 900;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1;
+}
 #cover{
   width: 40%;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background-image: url("../img/music-cover/1.png");
+  background-image: url("https://s1.imagehub.cc/images/2025/05/03/053efdee659e879ecc5afe43dea5d84a.th.png");
   background-size: cover;
+  overflow: hidden;
   transform-origin: center center;
+  z-index: 2;
 }
 #music-title{
   font-weight: 900;
@@ -87,6 +98,9 @@ body{
   #music-author{
     font-size: 4vw;
   }
+  #loading{
+    font-size: 5vw;
+  }
   .controls-container{
     width: 85vw;
     height: 20vw;
@@ -112,6 +126,9 @@ body{
   }
   #music-author{
     font-size: 22.4px
+  }
+  #loading{
+    font-size: 28px;
   }
   .controls-container {
     width: 476px;
