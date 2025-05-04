@@ -64,6 +64,8 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: relative;
+  aspect-ratio: 1/1;
 }
 .controls-btn{
   width: 30%;
@@ -71,7 +73,17 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  bottom: 0px;
+}
+#prev{
+  left: 2.5%;
+}
+#play-btn{
+  left: 35%;
+}
+#next{
+  right: 2.5%;
 }
 .options{
   background-color: rgba(255,255,255,0.3);
@@ -102,6 +114,22 @@ body{
   top: 50%;
   transform: translate(-50%, -50%);
 }
+#progress-container{
+  width: 80%;
+  height: 4%;
+  background-color: #999;
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  overflow: hidden;
+}
+#progress{
+  width: 1px;
+  height: 100%;
+  background-color: white;
+  z-index: 2;
+}
+
 @media screen and (max-width: 560px){
   #container{
     width: 85vw;
@@ -118,7 +146,7 @@ body{
   }
   .controls-container{
     width: 85vw;
-    height: 20vw;
+    height: 40vw;
     border-radius: 10vw;
   }
   .controls-btn{
@@ -141,6 +169,12 @@ body{
   #paused{
     font-size: 15vw;
   }
+  #progress-container{
+    border-radius: 1.6vw;
+  }
+  #progress{
+    border-radius: 1.6vw;
+  }
 }
 @media screen and (min-width: 560px){
   #container{
@@ -158,8 +192,8 @@ body{
   }
   .controls-container {
     width: 476px;
-    height: 112px;
-    border-radius: 56vw;
+    height: 224px;
+    border-radius: 56px;
   }
   .controls-btn{
     font-size: 84px;
@@ -180,4 +214,11 @@ body{
   }
   #paused{
     font-size: 84px;
-  }}
+  }
+  #progress-container{
+    border-radius: 9px;
+  }
+  #progress{
+    border-radius: 9px;
+  }
+}
