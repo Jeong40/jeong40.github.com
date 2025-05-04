@@ -19,33 +19,38 @@ var playing = document.getElementById("playing");
 var paused = document.getElementById("paused");
 var progressContainer = document.getElementById("progress-container");
 var progress = document.getElementById("progress");
+var timeDisplay = document.getElementById("time-display");
+var timeInfo = "Loading";
 //ui信息显示、装饰
 
 var musicList = ["Days of Love","海中都市","希望の光","Minecraft","太阳照常升起"];
 var authorList = ["松本文纪","松本文纪","松本文纪","C-418","久石让"];
 var sourceList = ["DoL","CityInTheOcean","LightOfHope","Minecraft","TheSunAlsoRises"];
-var coverList = ["1","2","3","Minecraft","TheSunAlsoRises"]
+var coverList = ["1","2","3","Minecraft","TheSunAlsoRises"];
 //歌曲信息
 
 var isPlaying = false;
 var Deg = 0;
 var interval;
+var timeInterval;
 var num = 0;
 var progressX = 0;
 //参数
 
 musicTitle.innerHTML = musicList[num];
+timeDisplay.innerHTML = "Loading";
 //initialize
 
 function rotate(){
   Deg = Deg + 1;
-  cover.style.transform = `rotate(${Deg}deg)`
+  cover.style.transform = `rotate(${Deg}deg)`;
 }
 function startPlaying(){
   if(isPlaying){
     isPlaying = false;
     music.pause()
     clearInterval(interval);
+    timeDisplay.innerHTML = "Loading";
      playing.style.color = "rgba(0,0,0,0.0)";
      paused.style.color = "rgba(0,0,0,1.0)";
   }else{
@@ -62,6 +67,8 @@ function updateInfo(){
   source.src = `https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/musics/${sourceList[num]}.mp3`
   musicTitle.innerHTML = musicList[num];
   musicAuthor.innerHTML = authorList[num];
+  timeDisplay.innerHTML = "Loading";
+  clearInterval(timeInterval);
   music.load();
   Deg = 0;
   cover.style.transform = "rotate(0deg)";
@@ -70,6 +77,24 @@ function updateInfo(){
     music.play();
   }
 }
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+//格式化时间
+
+function timeUpdate(){
+  let currentTime = music.currentTime;
+  let duration = music.duration;
+  timeInfo = formatTime(currentTime) + "/" + formatTime(duration);
+  timeDisplay.innerHTML = timeInfo;
+}
+music.addEventListener("loadedmetadata",function(){
+  timeInterval = setInterval(timeUpdate,500);
+});
+//时常显示
 
 function nextMusic(){
   if (num < musicList.length - 1){
@@ -87,6 +112,7 @@ function prevMusic(){
   }
   updateInfo();
 }
+//前后切歌
 
 function updateProgress(){
   progressX = (music.currentTime/music.duration)*100;
@@ -107,11 +133,9 @@ progressContainer.addEventListener("click",function(e){
     isPlaying = true;
   }
 });
-
-
+//调进度条
 
 setInterval(updateProgress,500);
-
 
 playBtn.addEventListener("click",startPlaying);
 next.addEventListener("click",nextMusic);
@@ -142,4 +166,3 @@ musicFive.onclick = function(){
 
 music.addEventListener("ended",nextMusic);
 //自动切歌
-
