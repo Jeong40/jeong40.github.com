@@ -73,7 +73,7 @@ function updateInfo(){
   Deg = 0;
   cover.style.transform = "rotate(0deg)";
   cover.style.backgroundImage = `url("https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/img/music-cover/${coverList[num]}.png")`;
-    if (isPlaying) {
+  if (isPlaying) {
     music.play();
   }
 }
