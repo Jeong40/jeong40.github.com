@@ -4,15 +4,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Relaxing music</title>
+  <title>Awesome musics</title>
   <link rel="stylesheet" href="../iconfont/player/iconfont.css">
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
+  <link rel="stylesheet" href="../css/bar.css">
   <link rel="icon" href="../img/icons/music.png">
   <link rel="stylesheet" href="../css/music.css">
 </head>
 
 <body>
   <div id="bg"></div>
-  <div id="container">
+  
+  
+  <!--导航栏-->
+  <div id="bar">
+    <!--button-->
+    <div id="menu-btn">
+      <div class="line" id="first-line"></div>
+      <div class="line" id="second-line"></div>
+    </div>
+    <!--button-->
+    <span id="bar-title">Awesome musics</spsn>
+      <iframe src="../resource/files/clock.html" id="clockIframe"></iframe>
+  </div>
+  <div id="menu">
+    <a href="../index.html">
+      <div class="menu-content">
+        <span class="iconfont icon-home menu-text">Home</span>
+      </div>
+    </a>
+    <a href="../resources.html">
+      <div class="menu-content">
+        <span class="iconfont icon-archive menu-text">Resources</span>
+      </div>
+    </a>
+    <a href="../links.html">
+      <div class="menu-content">
+        <span class="iconfont icon-links menu-text">Links</span>
+      </div>
+    </a>
+    <a href="../about.html">
+      <div class="menu-content">
+        <span class="iconfont icon-about menu-text">About</span>
+      </div>
+    </a>
+  </div>
+  <!--导航栏-->
+  
+  
+  <div id="container" style="margin-top: 60px">
     <div id="disk">
       <span id="loading">Loading</span>
       <div id="cover" aria-label="Loading"></div>
@@ -41,6 +81,7 @@
     <source src="https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/musics/DoL.mp3" id="source">
   </audio>
   <script src="../scripts/music.js"></script>
+  <script src="../scripts/bar.js"></script>
 </body>
 
 </html>
