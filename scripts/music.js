@@ -6,6 +6,8 @@ var next = document.getElementById("next");
 var musicOne = document.getElementById("music1");
 var musicTwo = document.getElementById("music2");
 var musicThree = document.getElementById("music3");
+var musicFour = document.getElementById("music4");
+var musicFive = document.getElementById("music5");
 //选歌列表
 
 var music = document.getElementById("music");
@@ -17,10 +19,10 @@ var playing = document.getElementById("playing");
 var paused = document.getElementById("paused");
 //ui信息显示、装饰
 
-var musicList = ["Days of Love","海中都市","希望の光"];
-var authorList = ["松本文纪","松本文纪","松本文纪"];
-var sourceList = ["DoL","CityInTheOcean","LightOfHope"];
-var coverList = ["1","2","3"]
+var musicList = ["Days of Love","海中都市","希望の光","Minecraft","太阳照常升起"];
+var authorList = ["松本文纪","松本文纪","松本文纪","C-418","久石让"];
+var sourceList = ["DoL","CityInTheOcean","LightOfHope","Minecraft","TheSunAlsoRises"];
+var coverList = ["1","2","3","Minecraft","TheSunAlsoRises"]
 //歌曲信息
 
 var isPlaying = false;
@@ -98,6 +100,14 @@ musicTwo.onclick = function(){
 musicThree.onclick = function(){
   num = 2;
   updateInfo(); 
+}
+musicFour.onclick = function(){
+  num = 3;
+  updateInfo();
+}
+musicFive.onclick = function(){
+  num = 4;
+  updateInfo();
 }
 //歌单功能
 
