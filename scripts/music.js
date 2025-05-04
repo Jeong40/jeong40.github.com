@@ -17,6 +17,8 @@ var musicTitle = document.getElementById("music-title");
 var musicAuthor = document.getElementById("music-author")
 var playing = document.getElementById("playing");
 var paused = document.getElementById("paused");
+var progressContainer = document.getElementById("progress-container");
+var progress = document.getElementById("progress");
 //ui信息显示、装饰
 
 var musicList = ["Days of Love","海中都市","希望の光","Minecraft","太阳照常升起"];
@@ -29,6 +31,7 @@ var isPlaying = false;
 var Deg = 0;
 var interval;
 var num = 0;
+var progressX = 0;
 //参数
 
 musicTitle.innerHTML = musicList[num];
@@ -55,6 +58,7 @@ function startPlaying(){
 }
 
 function updateInfo(){
+  progress.style.width = "0%";
   source.src = `https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/musics/${sourceList[num]}.mp3`
   musicTitle.innerHTML = musicList[num];
   musicAuthor.innerHTML = authorList[num];
@@ -83,6 +87,22 @@ function prevMusic(){
   }
   updateInfo();
 }
+
+function updateProgress(){
+  progressX = (music.currentTime/music.duration)*100;
+  progress.style.width = `${progressX}%`;
+}
+//进度条更新
+
+progressContainer.addEventListener("click",function(e){
+  progressX = (e.offsetX/this.clientWidth);
+  music.currentTime = music.duration * progressX;
+});
+
+
+
+setInterval(updateProgress,500);
+
 
 playBtn.addEventListener("click",startPlaying);
 next.addEventListener("click",nextMusic);
