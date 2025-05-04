@@ -35,8 +35,8 @@ mcBox.onclick = function(){
   pop.style.top = "50%";
 }
 music.onclick = function(){
-  popTitle.innerHTML = "一些好听的音乐";
-  popContent.innerHTML = "分享了一些好听的音乐（请勿用做商业用途！！！）";
+  popTitle.innerHTML = "Great musics";
+  popContent.innerHTML = "一些好听的音乐（若喜欢的话，请支持原作者！）";
   popBtn.href = "../pages/music.html";
   popBtn.innerHTML = "打开";
   popBtn.target = "_self";
