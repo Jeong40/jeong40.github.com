@@ -50,9 +50,8 @@ function startPlaying(){
     isPlaying = false;
     music.pause()
     clearInterval(interval);
-    timeDisplay.innerHTML = "Loading";
-     playing.style.color = "rgba(0,0,0,0.0)";
-     paused.style.color = "rgba(0,0,0,1.0)";
+    playing.style.color = "rgba(0,0,0,0.0)";
+    paused.style.color = "rgba(0,0,0,1.0)";
   }else{
     isPlaying = true;
     interval = setInterval(rotate,15);
