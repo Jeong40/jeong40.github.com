@@ -95,8 +95,17 @@ function updateProgress(){
 //进度条更新
 
 progressContainer.addEventListener("click",function(e){
-  progressX = (e.offsetX/this.clientWidth);
-  music.currentTime = music.duration * progressX;
+  progressX = (e.offsetX / this.clientWidth);
+  if(isPlaying){
+    music.currentTime = music.duration * progressX;
+  }else{
+    music.currentTime = music.duration * progressX;
+    music.play();
+    interval = setInterval(rotate,15);
+    playing.style.color = "rgba(0,0,0,1.0)";
+    paused.style.color = "rgba(0,0,0,0.0)";
+    isPlaying = true;
+  }
 });
 
 
