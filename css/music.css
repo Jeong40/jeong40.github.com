@@ -129,7 +129,12 @@ body{
   background-color: white;
   z-index: 2;
 }
-
+#time-display{
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%,0%);
+}
 @media screen and (max-width: 560px){
   #container{
     width: 85vw;
@@ -174,6 +179,9 @@ body{
   }
   #progress{
     border-radius: 1.6vw;
+  }
+  #time-display{
+    font-size: 5vw;
   }
 }
 @media screen and (min-width: 560px){
@@ -220,5 +228,8 @@ body{
   }
   #progress{
     border-radius: 9px;
+  }
+  #time-display{
+    font-size: 28px;
   }
 }
