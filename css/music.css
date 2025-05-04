@@ -110,7 +110,7 @@ body{
   #music-title{
     font-size: 9vw;
   }
-  #music-author{
+  .music-author{
     font-size: 4vw;
   }
   #loading{
@@ -150,7 +150,7 @@ body{
   #music-title{
     font-size: 50.4px;
   }
-  #music-author{
+  .music-author{
     font-size: 22.4px
   }
   #loading{
