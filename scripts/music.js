@@ -31,7 +31,7 @@ var coverList = ["1","2","3","Minecraft","TheSunAlsoRises"];
 
 var isPlaying = false;
 var Deg = 0;
-var interval;
+var rotateInterval;
 var timeInterval;
 var progressInterval;
 var num = 0;
@@ -50,12 +50,12 @@ function startPlaying(){
   if(isPlaying){
     isPlaying = false;
     music.pause()
-    clearInterval(interval);
+    clearInterval(rotateInterval);
     playing.style.color = "rgba(0,0,0,0.0)";
     paused.style.color = "rgba(0,0,0,1.0)";
   }else{
     isPlaying = true;
-    interval = setInterval(rotate,15);
+    rotateInterval = setInterval(rotate,15);
     music.play();
     playing.style.color = "rgba(0,0,0,1.0)";
     paused.style.color = "rgba(0,0,0,0.0)"
@@ -70,6 +70,7 @@ function updateInfo(){
   timeDisplay.innerHTML = "Loading";
   clearInterval(timeInterval);
   clearInterval(progressInterval);
+  clearInterval(rotateInterval)
   music.load();
   Deg = 0;
   cover.style.transform = "rotate(0deg)";
@@ -82,7 +83,7 @@ function updateInfo(){
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
-  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  return `0${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 //格式化时间
 
@@ -92,11 +93,8 @@ function timeUpdate(){
   timeInfo = formatTime(currentTime) + "/" + formatTime(duration);
   timeDisplay.innerHTML = timeInfo;
 }
-music.addEventListener("loadedmetadata",function(){
-  timeInterval = setInterval(timeUpdate,500);
-  progressInterval = setInterval(updateProgress ,500);
-});
-//时常显示
+
+//时长显示 
 
 function nextMusic(){
   if (num < musicList.length - 1){
@@ -129,7 +127,7 @@ progressContainer.addEventListener("click",function(e){
   }else{
     music.currentTime = music.duration * progressX;
     music.play();
-    interval = setInterval(rotate,15);
+    rotateInterval = setInterval(rotate,15);
     playing.style.color = "rgba(0,0,0,1.0)";
     paused.style.color = "rgba(0,0,0,0.0)";
     isPlaying = true;
@@ -137,7 +135,13 @@ progressContainer.addEventListener("click",function(e){
 });
 //调进度条
 
-//setInterval(updateProgress,500);
+music.addEventListener("loadedmetadata", function() {
+  timeInterval = setInterval(timeUpdate, 500);
+  progressInterval = setInterval(updateProgress, 500);
+  if(isPlaying){
+    rotateInterval = setInterval(rotate,15);
+  }
+});
 
 playBtn.addEventListener("click",startPlaying);
 next.addEventListener("click",nextMusic);
