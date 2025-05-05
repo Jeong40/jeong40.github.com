@@ -33,6 +33,7 @@ var isPlaying = false;
 var Deg = 0;
 var interval;
 var timeInterval;
+var progressInterval;
 var num = 0;
 var progressX = 0;
 //参数
@@ -68,6 +69,7 @@ function updateInfo(){
   musicAuthor.innerHTML = authorList[num];
   timeDisplay.innerHTML = "Loading";
   clearInterval(timeInterval);
+  clearInterval(progressInterval);
   music.load();
   Deg = 0;
   cover.style.transform = "rotate(0deg)";
@@ -92,6 +94,7 @@ function timeUpdate(){
 }
 music.addEventListener("loadedmetadata",function(){
   timeInterval = setInterval(timeUpdate,500);
+  progressInterval = setInterval(updateProgress ,500);
 });
 //时常显示
 
@@ -134,7 +137,7 @@ progressContainer.addEventListener("click",function(e){
 });
 //调进度条
 
-setInterval(updateProgress,500);
+//setInterval(updateProgress,500);
 
 playBtn.addEventListener("click",startPlaying);
 next.addEventListener("click",nextMusic);
