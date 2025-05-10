@@ -51,14 +51,12 @@ function startPlaying(){
     isPlaying = false;
     music.pause()
     clearInterval(interval);
-    playing.style.color = "rgba(0,0,0,0.0)";
-    paused.style.color = "rgba(0,0,0,1.0)";
+    paused.className = "iconfont icon-player";
   }else{
     isPlaying = true;
     interval = setInterval(rotate,15);
     music.play();
-    playing.style.color = "rgba(0,0,0,1.0)";
-    paused.style.color = "rgba(0,0,0,0.0)"
+    paused.className = "iconfont icon-player-pause";
   }
 }
 
