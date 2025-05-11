@@ -51,12 +51,12 @@ function startPlaying(){
     isPlaying = false;
     music.pause()
     clearInterval(interval);
-    paused.className = "iconfont icon-player";
+    playBtn.className = "iconfont icon-player controls-btn";
   }else{
     isPlaying = true;
     interval = setInterval(rotate,15);
     music.play();
-    paused.className = "iconfont icon-player-pause";
+    playBtn.className = "iconfont icon-player-pause controls-btn";
   }
 }
 
@@ -124,8 +124,7 @@ progressContainer.addEventListener("click",function(e){
     music.currentTime = music.duration * progressX;
     music.play();
     interval = setInterval(rotate,15);
-    playing.style.color = "rgba(0,0,0,1.0)";
-    paused.style.color = "rgba(0,0,0,0.0)";
+    playBtn.className = "iconfont icon-player-pause controls-btn";
     isPlaying = true;
   }
 });

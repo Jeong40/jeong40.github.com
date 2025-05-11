@@ -104,20 +104,6 @@ body{
 .option-content{
   color: black;
 }
-#playing {
-  color: rgba(0,0,0,0.0);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
-#paused {
-  color: black;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
 #progress-container{
   width: 80%;
   height: 4%;
@@ -172,12 +158,6 @@ body{
     font-size: 8vw;
     margin: 2vw;
   }
-  #playing{
-    font-size: 15vw;
-  }
-  #paused{
-    font-size: 15vw;
-  }
   #progress-container{
     border-radius: 1.6vw;
   }
@@ -220,12 +200,6 @@ body{
   .option-content{
     font-size: 44.8px;
     margin: 11.2px;
-  }
-  #playing{
-    font-size: 84px;
-  }
-  #paused{
-    font-size: 84px;
   }
   #progress-container{
     border-radius: 9px;
