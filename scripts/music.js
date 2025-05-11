@@ -63,7 +63,7 @@ function startPlaying(){
 
 function updateInfo(){
   progress.style.width = "0%";
-  source.src = `https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/musics/${sourceList[num]}.mp3`
+  source.src = `../musics/${sourceList[num]}.mp3`
   musicTitle.innerHTML = musicList[num];
   musicAuthor.innerHTML = authorList[num];
   timeDisplay.innerHTML = "Loading";
@@ -73,7 +73,7 @@ function updateInfo(){
   music.load();
   Deg = 0;
   cover.style.transform = "rotate(0deg)";
-  cover.style.backgroundImage = `url("https://cdn.jsdelivr.net/gh/jeong40/jeong40.github.com/img/music-cover/${coverList[num]}.png")`;
+  cover.style.backgroundImage = `url("../img/music-cover/${coverList[num]}.png")`;
   if (isPlaying) {
     music.play();
   }
