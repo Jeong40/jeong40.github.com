@@ -51,27 +51,26 @@
   </div>
   <!--导航栏-->
   
+  <div class="out-container">
+    <div id="container">
+      <div id="disk">
+        <span id="loading">Loading</span>
+        <div id="cover"></div>
+      </div>
+      <span id="music-title">Days of Love</span>
+      <span class="music-author" id="music-author">松本文纪</span>
+    </div>
+    <div class="controls-container">
+      <div id="progress-container">
+        <div id="progress"></div>
+      </div>
+      <span id="time-display"></span>
+      <div class="iconfont icon-player-back-01 controls-btn" id="prev"></div>
+      <div class="iconfont icon-player controls-btn" id="play-btn"></div>
+      <div class="iconfont icon-player-next-01 controls-btn" id="next"></div>
+    </div>
+  </div>
   
-  <div id="container" style="margin-top: 60px">
-    <div id="disk">
-      <span id="loading">Loading</span>
-      <div id="cover" aria-label="Loading"></div>
-    </div>
-    <span id="music-title">Days of Love</span>
-    <span class="music-author" id="music-author">松本文纪</span>
-  </div>
-  <br/>
-  <div class="controls-container">
-    <div id="progress-container">
-      <div id="progress"></div>
-      <div id="progress-ball"></div>
-    </div>
-    <span id="time-display"></span>
-    <div class="iconfont icon-player-back-01 controls-btn" id="prev"></div>
-    <div class="iconfont icon-player controls-btn" id="play-btn"> </div>
-    <div class="iconfont icon-player-next-01 controls-btn" id="next"></div>
-  </div>
-  <br/>
   <div class="options">
     <span class="option-title">歌单</span>
     <span class="option-content" id="music1">Days of Love</span>
@@ -80,9 +79,7 @@
     <span class="option-content" id="music4">Minecraft</span>
     <span class="option-content" id="music5">太阳照常升起</span>
     <span class="option-content" id="music6">ICARUS</span>
-    
   </div>
-  
   <audio id="music">
     <source src="../musics/DoL.mp3" type="audio/mpeg" id="source">
   </audio>
