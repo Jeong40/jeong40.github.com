@@ -1,41 +1,53 @@
 body{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px;
+  margin: 0px;
+  padding-top: 60px;
 }
 #bg{
-  background-image: url("../img/backgrounds/planks_oak.png");
-  image-rendering: pixelated;
-  background-size: 320px;
   width: 100%;
   height: 100%;
   position: fixed;
   left: 0px;
   top: 0px;
+  background-image: url("../img/backgrounds/planks_oak.png");
+  background-size: 320px;
+  image-rendering: pixelated;
+  z-index: -1;
+}
+.out-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
 }
 #container{
   background-color: rgba(255,255,255,0.3);
-  -webkit-backdrop-filter: blur(10px);
-  aspect-ratio: 3/4;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  box-shadow: 1vw 1vw 5px rgba(0,0,0,0.3);
 }
-
 #disk{
-  width: 80%;
-  aspect-ratio: 1/1;
   border-radius: 50%;
-  border: 1px black solid;
-  background: repeating-radial-gradient(#000,#000 5%, #1c1c1c 7%);
+  background: repeating-radial-gradient(black,black 5%,#222 5%,#222 7%);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 1vw 1vw 5px rgba(0,0,0,0.3);
+}
+#cover{
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-image: url("../img/music-cover/1.png");
+  background-size: cover;
+  z-index: 2;
 }
 #loading{
   color: white;
@@ -46,47 +58,59 @@ body{
   transform: translate(-50%,-50%);
   z-index: 1;
 }
-#cover{
-  width: 40%;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  background-image: url("../img/music-cover/1.png");
-  background-size: cover;
-  overflow: hidden;
-  transform-origin: center center;
-  z-index: 2;
-}
 #music-title{
   font-weight: 900;
+  color: black;
+}
+#music-author{
+  color: black;
 }
 .controls-container{
   background-color: rgba(255,255,255,0.3);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); 
   -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   position: relative;
-  aspect-ratio: 1/1;
-  box-shadow: 1vw 1vw 5px rgba(0,0,0,0.3);
+  margin-top: 0px;
+}
+#progress-container{
+  width: 80%;
+  height: 4%;
+  background-color: #999;
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  transform: translate(-50%,0%);
+}
+#progress{
+  width: 0.1px;
+  height: 100%;
+  background-color: white;
 }
 .controls-btn{
-  width: 30%;
-  aspect-ratio: 1/1;
+  transform: translate(-50%,0%);
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  bottom: 0px;
 }
 #prev{
-  left: 2.5%;
+  left: 25%;
+  top: 50%;
 }
 #play-btn{
-  left: 35%;
+  left: 50%;
+  top: 50%;
 }
 #next{
-  right: 2.5%;
+  left: 75%;
+  top: 50%;
+}
+#time-display{
+  color: black;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%,0px);
 }
 .options{
   background-color: rgba(255,255,255,0.3);
@@ -94,9 +118,8 @@ body{
   -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  box-shadow: 1vw 1vw 5px rgba(0,0,0,0.3);
+  justify-content: flex-start;
 }
 .option-title{
   color: black;
@@ -104,110 +127,113 @@ body{
 .option-content{
   color: black;
 }
-#progress-container{
-  width: 80%;
-  height: 4%;
-  background-color: #999;
-  position: absolute;
-  left: 10%;
-  top: 20%;
-  overflow: hidden;
-}
-#progress{
-  width: 1px;
-  height: 100%;
-  background-color: white;
-  z-index: 2;
-}
 #time-display{
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%,0%);
+  color: black;
 }
 @media screen and (max-width: 560px){
+  body{
+    flex-direction: column;
+  }
+  .out-container{
+    width: 100vw;
+    height: 155vw;
+    margin-bottom: 5vw;
+  }
   #container{
-    width: 85vw;
-    border-radius: 10vw; 
+    width: 90vw;
+    height: 110vw;
+    margin-bottom: 5vw;
+    border-radius: 10vw;
   }
-  #music-title{
-    font-size: 9vw;
-  }
-  .music-author{
-    font-size: 4vw;
+  #disk{
+    width: 80vw;
+    height: 80vw;
   }
   #loading{
     font-size: 5vw;
   }
+  #music-title{
+    font-size: 10vw;
+  }
+  #music-author{
+    font-size: 5vw;
+  }
   .controls-container{
-    width: 85vw;
+    width: 90vw;
     height: 40vw;
     border-radius: 10vw;
   }
   .controls-btn{
-    font-size: 15vw;
+    width: 20vw;
+    height: 20vw;
+    font-size: 18vw;
   }
   .options{
-    width: 85vw;
+    width: 90vw;
+    margin: 0vw 5vw 5vw 5vw;
     border-radius: 10vw;
   }
   .option-title{
-    font-size: 10vw; 
+    font-size: 14vw;
   }
   .option-content{
     font-size: 8vw;
-    margin: 2vw;
-  }
-  #progress-container{
-    border-radius: 1.6vw;
-  }
-  #progress{
-    border-radius: 1.6vw;
   }
   #time-display{
-    font-size: 5vw;
+    font-size: 6vw;
   }
 }
 @media screen and (min-width: 560px){
+  body{
+    flex-direction: row;
+  }
+  .out-container{
+    width: 50vw;
+    height: 97.5vw;
+  }
   #container{
-    width: 476px;
-    border-radius: 56px;
+    width: 45vw;
+    height: 55vw;
+    margin-bottom: 2.5vw;
+    border-radius: 5vw;
   }
-  #music-title{
-    font-size: 50.4px;
-  }
-  .music-author{
-    font-size: 22.4px
+  #disk{
+    width: 40vw;
+    height: 40vw;
+    font-size: 3vw;
   }
   #loading{
-    font-size: 28px;
+    font-size: 2.5vw;
   }
-  .controls-container {
-    width: 476px;
-    height: 224px;
-    border-radius: 56px;
+  #music-author{
+    font-size: 2.5vw;
+  }
+  #music-title{
+    font-size: 5vw
+  }
+  .controls-container{
+    width: 45vw;
+    height: 20vw;
+    border-radius: 5vw;
   }
   .controls-btn{
-    font-size: 84px;
+    width: 10vw;
+    height: 10vw;
+    font-size: 9vw;
   }
   .options{
-    width: 476px;
-    border-radius: 56px;
+    width: 45vw;
+    height: 77.5vw;
+    border-radius: 5vw;
+    margin: 0vw 2.5vw;
+    overflow: scroll;
   }
   .option-title{
-    font-size: 56px;
+    font-size: 7vw;
   }
   .option-content{
-    font-size: 44.8px;
-    margin: 11.2px;
-  }
-  #progress-container{
-    border-radius: 9px;
-  }
-  #progress{
-    border-radius: 9px;
-  }
-  #time-display{
-    font-size: 28px;
+    font-size: 4vw;
+  }#time-display{
+    font-size: 2vw;
   }
 }
