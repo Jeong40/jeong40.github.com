@@ -1,10 +1,17 @@
 body{
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 0px;
   margin: 0px;
   padding-top: 60px;
+}
+hr{
+  width: 80%;
+  margin: 2px 10%;
+}
+.box{
+  width: 560px;
+  display: flex;
 }
 #bg{
   width: 100%;
@@ -118,20 +125,20 @@ body{
   -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
 }
 .option-title{
   color: black;
+  margin-left: 10%;
 }
 .option-content{
   color: black;
+  margin-left: 10%;
 }
 #time-display{
   color: black;
 }
 @media screen and (max-width: 560px){
-  body{
+  .box{
     flex-direction: column;
   }
   .out-container{
@@ -179,61 +186,68 @@ body{
   .option-content{
     font-size: 8vw;
   }
+  hr{
+    border: #888 0.4vw solid;
+  }
   #time-display{
     font-size: 6vw;
   }
 }
 @media screen and (min-width: 560px){
-  body{
+  .box{
     flex-direction: row;
   }
   .out-container{
-    width: 50vw;
-    height: 97.5vw;
+    width: 280px;
+    height: 546px;
   }
   #container{
-    width: 45vw;
-    height: 55vw;
-    margin-bottom: 2.5vw;
-    border-radius: 5vw;
+    width: 252px;
+    height: 308px;
+    margin-bottom: 14px;
+    border-radius: 28px;
   }
   #disk{
-    width: 40vw;
-    height: 40vw;
-    font-size: 3vw;
+    width: 224px;
+    height: 224px;
+    font-size: 17px;
   }
   #loading{
-    font-size: 2.5vw;
+    font-size: 14px;
   }
   #music-author{
-    font-size: 2.5vw;
+    font-size: 14px;
   }
   #music-title{
-    font-size: 5vw
+    font-size: 28px;
   }
   .controls-container{
-    width: 45vw;
-    height: 20vw;
-    border-radius: 5vw;
+    width: 252px;
+    height: 112px;
+    border-radius: 28px;
   }
   .controls-btn{
-    width: 10vw;
-    height: 10vw;
-    font-size: 9vw;
+    width: 56px;
+    height: 56px;
+    font-size: 50px;
   }
   .options{
-    width: 45vw;
-    height: 77.5vw;
-    border-radius: 5vw;
-    margin: 0vw 2.5vw;
+    width: 252px;
+    height: 434px;
+    border-radius: 28px;
+    margin: 0px 14px;
     overflow: scroll;
   }
   .option-title{
-    font-size: 7vw;
+    font-size: 39px;
   }
   .option-content{
-    font-size: 4vw;
-  }#time-display{
-    font-size: 2vw;
+    font-size: 23px;
+  }
+  hr{
+    border: 1px #888 solid;
+  }
+  #time-display{
+    font-size: 17px;
   }
 }
