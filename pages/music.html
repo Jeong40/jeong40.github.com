@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../iconfont/player/iconfont.css">
   <link rel="stylesheet" href="../iconfont/iconfont.css">
   <link rel="stylesheet" href="../css/bar.css">
-  <link rel="icon" href="../img/icons/music.png">
+  <link rel="icon" href="../img/ic ons/music.png">
   <link rel="stylesheet" href="../css/music.css">
 </head>
 
@@ -50,35 +50,38 @@
     </a>
   </div>
   <!--导航栏-->
-  
-  <div class="out-container">
-    <div id="container">
-      <div id="disk">
-        <span id="loading">Loading</span>
-        <div id="cover"></div>
+  <div class="box">
+    <div class="out-container">
+      <div id="container">
+        <div id="disk">
+          <span id="loading">Loading</span>
+          <div id="cover"></div>
+        </div>
+        <span id="music-title">Days of Love</span>
+        <span class="music-author" id="music-author">松本文纪</span>
       </div>
-      <span id="music-title">Days of Love</span>
-      <span class="music-author" id="music-author">松本文纪</span>
-    </div>
-    <div class="controls-container">
-      <div id="progress-container">
+      <div class="controls-container">
+        <div id="progress-container">
         <div id="progress"></div>
       </div>
       <span id="time-display"></span>
-      <div class="iconfont icon-player-back-01 controls-btn" id="prev"></div>
-      <div class="iconfont icon-player controls-btn" id="play-btn"></div>
-      <div class="iconfont icon-player-next-01 controls-btn" id="next"></div>
+        <div class="iconfont icon-player-back-01 controls-btn" id="prev"></div>
+        <div class="iconfont icon-player controls-btn" id="play-btn"></div>
+        <div class="iconfont icon-player-next-01 controls-btn" id="next"></div>
+      </div>
     </div>
-  </div>
   
-  <div class="options">
-    <span class="option-title">歌单</span>
-    <span class="option-content" id="music1">Days of Love</span>
-    <span class="option-content" id="music2">海中都市</span>
-    <span class="option-content" id="music3">希望の光</span>
-    <span class="option-content" id="music4">Minecraft</span>
-    <span class="option-content" id="music5">太阳照常升起</span>
-    <span class="option-content" id="music6">ICARUS</span>
+    <div class="options">
+      <span class="option-title">歌单</span>
+      <span class="iconfont icon-player option-content" id="music1">Days of Love</span>
+      <hr/>
+      <span class="iconfont icon-player option-content" id="music2">海中都市</span>
+      <span class="iconfont icon-player option-content" id="music3">希望の光</span>
+      <span class="iconfont icon-player option-content" id="music4">Minecraft</span>
+      <span class="iconfont icon-player option-content" id="music5">太阳照常升起</span>
+      <span class="iconfont icon-player option-content" id="music6">ICARUS</span>
+      <br/>
+    </div>
   </div>
   <audio id="music">
     <source src="../musics/DoL.mp3" type="audio/mpeg" id="source">
