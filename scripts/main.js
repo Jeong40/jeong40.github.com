@@ -10,8 +10,8 @@ var popBtn = document.getElementById("popBtn");
 var popClose = document.getElementById("popClose");
 
 goodPhotosBox.onclick = function(){
-  popTitle.innerHTML = "好看的图片";
-  popContent.innerHTML = "网上收集的资源，侵权删（12大概率是ai作图，所以我把它稍微修改了一下，似乎能显得自然些）";
+  popTitle.innerHTML = "Good photos";
+  popContent.innerHTML = "网上收集的资源，侵权删";
   popBtn.href = "https://www.123684.com/s/EVPZjv-cjbRd";
   popBtn.innerHTML = "查看";
   popBtn.target = "_blank"
