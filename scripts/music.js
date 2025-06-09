@@ -9,6 +9,7 @@ var musicThree = document.getElementById("music3");
 var musicFour = document.getElementById("music4");
 var musicFive = document.getElementById("music5");
 var musicSix = document.getElementById("music6");
+var musicSeven = document.getElementById("music7");
 //选歌列表
 
 var music = document.getElementById("music");
@@ -24,10 +25,10 @@ var timeDisplay = document.getElementById("time-display");
 var timeInfo = "Loading";
 //ui信息显示、装饰
 
-var musicList = ["Days of Love","海中都市","希望の光","Minecraft","太阳照常升起","ICARUS"];
-var authorList = ["松本文纪","松本文纪","松本文纪","C-418","久石让","Tony Ann"];
-var sourceList = ["DoL","CityInTheOcean","LightOfHope","Minecraft","TheSunAlsoRises","ICARUS"];
-var coverList = ["1","2","3","Minecraft","TheSunAlsoRises","ICARUS"];
+var musicList = ["Days of Love","海中都市","希望の光","Minecraft","太阳照常升起","ICARUS","Alice in a xxxxxxxx"];
+var authorList = ["松本文纪","松本文纪","松本文纪","C-418","久石让","Tony Ann","Nagiha"];
+var sourceList = ["DoL","CityInTheOcean","LightOfHope","Minecraft","TheSunAlsoRises","ICARUS","AliceInAXxxxxxxx"];
+var coverList = ["1","2","3","Minecraft","TheSunAlsoRises","ICARUS","AliceInAXxxxxxxx"];
 //歌曲信息
 
 var isPlaying = false;
@@ -168,6 +169,10 @@ musicFive.onclick = function(){
 }
 musicSix.onclick = function(){
   num = 5;
+  updateInfo();
+}
+musicSeven.onclick = function(){
+  num = 6;
   updateInfo();
 }
 //歌单功能
