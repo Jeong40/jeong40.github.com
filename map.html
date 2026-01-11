@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>地图画辅助工具</title>
+  
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      pisition: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: #eee;
+      color: black;
+    }
+    #displayBox {
+      display: flex;
+      flex-direction: column;
+    }
+    #controlPanel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: #eee;
+    }
+    #controlPanel p {
+      position: relative;
+    }
+    .btn {
+      border-bottom: 1px solid grey;
+      border-top: 2px solid grey;
+      overflow: hidden;
+    }
+    #colorInput {
+      background-color: #eee;
+      border-radius: 0;
+    }
+    #controlPanelTitle {
+      font-weight: 900;
+    }
+    .btn span {
+      position: absolute;
+      transform: translate(-50%, -50%) scale(1.0);
+      
+      border-radius: 50%;
+      background-color: rgba(100,100,100,0.5);
+      animation: effect 0.5s ease-out;
+    }
+    @keyframes effect {
+      from {
+        transform: translate(-50%, -50%) scale(1.0);
+        opacity: 1.0;
+      }
+      to {
+        transform: translate(-50%, -50%) scale(30.0);
+        opacity: 0.0;
+      }
+    }
+    @media screen and (max-width: 800px) {
+      body {
+        flex-direction: column;
+      }
+      #controlPenel {
+        width: 90vw;
+        height: 180vw;
+      }
+      #canvas {
+        width: 90vw;
+        height: 90vw;
+      }
+      #pic {
+        width: 90vw;
+        height: 90vw;
+      }
+      #controlPanel {
+        width: 90vw;
+      }
+      .btn {
+        width: 90vw;
+        height: 10vw;
+        font-size: 7vw;
+      }
+      .btn span {
+        width: 6vw;
+        height: 6vw;
+      }
+      #colorInput {
+        width: 90vw;
+        height: 10vw;
+        font-size: 5vw;
+      }
+    }
+    @media screen and (min-width: 800px){
+      body {
+        flex-direction: row;
+      }
+      #canvas {
+        width: 45vw;
+        height: 45vw;
+        margin-left: 5vw;
+      }
+      #pic {
+        width: 45vw;
+        height: 45vw;
+        margin-left: 5vw;
+      }
+      #controlPanel {
+        width: 45vw;
+      }
+      .btn {
+        width: 45vw;
+        height: 5vw;
+        font-size: 3.5vw;
+      }
+      .btn span {
+        width: 3vw;
+        height: 3vw;
+      }
+      #colorInput {
+        width: 45vw;
+        height: 5vw;
+        font-size: 2.5vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="displayBox">
+    <img id="pic">
+    <canvas width="2048" height="2048" id="canvas"></canvas>
+  </div>
+  <div id="controlPanel">
+    <p align="center" class="btn" id="controlPanelTitle">控制面板</p>
+    <p align="center" id="uploadBtn" class="btn clickable">导入图片</p>
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    <p align ="center" id="textSwitch" class="btn clickable">是否显示数字：是</p>
+    <p align ="center" id="modeShifting" class="btn clickable">数字编号方向：水平</p>
+    <p align="center" class="btn">边框颜色</p>
+    <input id="colorInput" value="请输入一个rgb值，如“0,0,0”(默认值)"></input>
+    <p align ="center" id="confirmBtn" class="btn clickable">确认</p>
+    <p align ="center" id="saveBtn" class="btn clickable">保存图片</p>
+  </div>
+
+  <script>
+    const pic = document.getElementById('pic');
+    const canvas = document.getElementById('canvas');
+    const c = canvas.getContext('2d');
+    const modeShifting = document.getElementById('modeShifting');
+    const colorInput = document.getElementById('colorInput');
+    const confirmBtn = document.getElementById('confirmBtn');
+    const textSwitch = document.getElementById('textSwitch');
+
+    let num = 0;
+    let times = 0;
+    let x = 0;
+    let y = 0;
+    const colorList = ['#f00','#ff0','#0f0','#0ff','#00f','#f0f'];
+    
+    let displayNum = true;
+    let mode = 'row';
+
+
+    c.strokeStyle = 'black';
+    c.font = '10px Arial';
+    c.lineWidth = '1';
+    
+    c.save();
+    c.fillStyle = 'black';
+    c.font = '200px Arial';
+    c.fillText('请先导入图片。。。', 300, 1024);
+    c.restore();
+    function draw() {
+      let listNum = 0;
+      times = 0;
+      num = 1;
+      x = 0;
+      y = 0;
+      if (mode == 'row') {
+        c.drawImage(pic, 0, 0, 2048, 2048);
+        while (times <= 128 * 128) {
+          c.fillStyle = colorList[listNum];
+          c.strokeRect(x, y, 16, 16);
+          if (displayNum) {
+            c.fillText(num, x, y + 12);
+          }
+          x += 16;
+          if (num == 128) {
+            num = 0;
+            x = 0;
+            y += 16;
+            listNum ++;
+            if (listNum == 6) {
+              listNum = 0;  
+            }
+          }
+          times++;
+          num++;
+        }
+      } else {
+        c.drawImage(pic, 0, 0, 2048, 2048);
+        while (times <= 128 * 128) {
+          c.fillStyle = colorList[listNum];
+          c.strokeRect(x, y, 16, 16);
+          if (displayNum) {
+            c.fillText(num, x, y + 12);
+          }
+          y += 16;
+          if (num == 128) {
+            num = 0;
+            y = 0;
+            x += 16;
+            listNum++;
+            if (listNum == 6) {
+              listNum = 0;
+            }            
+          }
+          times++;
+          num++;
+        }
+      }
+    }
+    //理论上这两坨几乎一模一样的东西是可以简化的，但我不会搞qwq
+
+    function saveImage() {
+      const url = canvas.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = '地图画';
+      a.target = '_target';
+      a.click();
+    }
+    colorInput.onclick = () => {
+      colorInput.value = '';
+    }
+    confirmBtn.onclick = () => {
+      if (colorInput.value != '' && colorInput.value != '请输入一个rgb值，如“0,0,0”(默认值)') {
+        const colorValue = 'rgb(' + colorInput.value + ')';
+        c.strokeStyle = colorValue;
+        draw();
+      } else {
+        c.strokeStyle = 'black';
+        draw();
+      }
+    }
+    modeShifting.onclick = () => {
+      if (mode =='row') {
+        mode = ',cloumn';
+        modeShifting.innerHTML = '数字编号方向：竖直';
+      } else {
+        mode = 'row';
+        modeShifting.innerHTML = '数字编号方向：水平';
+      }
+    }
+
+    pic.addEventListener('load', draw);
+    
+    textSwitch.onclick = () => {
+      if (displayNum) {
+        displayNum = false;
+        textSwitch.innerHTML = '是否显示数字：否';
+      } else {
+        displayNum = true;
+        textSwitch.innerHTML = '是否显示数字：是';
+      }
+    }
+    const body = document.getElementsByTagName('body')[0];
+
+    body.addEventListener("click", function(e) {
+      if (e.target.classList.contains('clickable')) {
+        const btn = e.target;
+        const x = e.offsetX;
+        const y = e.offsetY;
+    
+        const span = document.createElement('span');
+        span.style.cssText = `left: ${x}px; top: ${y}px;`
+        btn.appendChild(span);
+    
+        setTimeout(() => span.remove(), 500);
+      }
+    });
+    
+    const uploadBtn = document.getElementById('uploadBtn');
+    const fileInput = document.getElementById('fileInput');
+
+    uploadBtn.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          pic.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    saveBtn.addEventListener('click', saveImage);
+    
+  </script>
+</body>
+</html>
