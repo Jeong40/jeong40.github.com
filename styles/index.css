@@ -1,0 +1,39 @@
+body {
+	position: relative;
+	display: flex;
+	flex-direction: column;	
+}
+
+#backgroundBox {
+	position: relative;
+	background-image: url('../assets/images/homeBackground.jpg');
+	background-position: center;
+	background-size: cover;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#backgroundBox::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, transparent 60%, #eee 100%);
+}
+#sentenceDisplay {
+	color: white;
+	font-size: 5vw;
+	font-weight: 900;
+	width: 80vw;
+	text-align: center;
+	text-shadow: 
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
