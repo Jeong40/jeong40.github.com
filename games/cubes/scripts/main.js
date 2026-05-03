@@ -17,7 +17,7 @@ sizeAdjustment();
 window.addEventListener('resize', sizeAdjustment);
 
 function axisCalculation(e) {
-	const touch = e.touches[0];
+	const touch = e.touches[e.touches.length - 1];
 	const clickedElement = touch.target;
 	const rect = clickedElement.getBoundingClientRect();
 	
